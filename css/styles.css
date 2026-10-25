@@ -355,7 +355,7 @@ img.is-missing { visibility: hidden; }
 /* Как устроена история */
 .how { position: relative; height: 618px; }
 .how__title { position: relative; z-index: 1; }
-.how__list { position: absolute; left: 120px; top: 147px; width: 525px; display: flex; flex-direction: column; gap: 16px; }
+.how__list { position: absolute; left: 120px; top: 147px; width: 525px; display: flex; flex-direction: column; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .option-card {
   display: flex;
   align-items: flex-start;
@@ -439,9 +439,9 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 /* =========================================================
    Послесловие
    ========================================================= */
-.after-hero { padding: 172px 0 64px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+.after-hero { padding-top: 172px; padding-bottom: 64px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
 .after-hero .h2 { max-width: 876px; }
-.trap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.trap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; }
 .trap-card { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-l); background: var(--bg-surface); }
 .trap-card__top { display: flex; flex-direction: column; gap: 12px; }
 
@@ -454,12 +454,12 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .help-card__pic--lime { background: var(--lime-200); }
 .help-card__text { display: flex; flex-direction: column; gap: 16px; padding: 32px; }
 
-.agree { display: flex; align-items: center; gap: 64px; padding: 80px 0; }
+.agree { display: flex; align-items: center; gap: 64px; padding-top: 80px; padding-bottom: 80px; }
 .agree__text { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
 .agree__text .h2 { max-width: 520px; }
 .agree__text .body-s { max-width: 483px; }
 .agree__actions { display: flex; flex-wrap: wrap; gap: 20px; }
-.agree__quote { flex: 0 0 590px; display: flex; flex-direction: column; gap: 16px; padding: 40px 40px 48px; border-radius: var(--radius-l); background: var(--lime-500); }
+.agree__quote { flex: 0 0 590px; margin: 0; display: flex; flex-direction: column; gap: 16px; padding: 40px 40px 48px; border-radius: var(--radius-l); background: var(--lime-500); }
 
 .links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .link-card { display: flex; flex-direction: column; align-items: flex-start; gap: 48px; padding: 40px; border-radius: var(--radius-l); background: var(--bg-surface); }
@@ -478,6 +478,11 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .help-grid { grid-template-columns: 1fr; }
   .agree { flex-direction: column; align-items: stretch; }
   .agree__quote { flex-basis: auto; }
+  /* Карточки этапов в две равные колонки: настольные картинки рассчитаны
+     на другую ширину и обрезались, ставим угловые картинки из мобильного макета */
+  .stage-card .deco { display: none; }
+  .stage-card .stage-card__m-art { display: block; position: absolute; height: auto; pointer-events: none; }
+  .stage-card--lime .stage-card__text, .stage-card--peach .stage-card__text { max-width: calc(100% - 120px); }
 }
 
 @media (max-width: 760px) {
