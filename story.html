@@ -31,6 +31,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Картинки первого экрана: грузим сразу, только нужный вариант (компьютер или телефон) -->
+  <link rel="preload" as="image" href="assets/m/m-story-01.webp" type="image/webp" media="(max-width: 900px), (max-height: 500px), (orientation: portrait)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/story-01.webp" type="image/webp" media="(min-width: 901px) and (min-height: 501px) and (orientation: landscape)" fetchpriority="high">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -67,9 +70,9 @@
 
   <!-- 1. Вступление: Ваня пришёл из школы -->
   <section class="screen" data-chapter="Вступление" data-step="1" aria-label="Экран 1">
-    <img class="m-only m-scene" src="assets/m/m-story-01.png" alt="Ваня с рюкзаком заходит домой">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-01.webp" alt="Ваня с рюкзаком заходит домой">
     <div class="art" data-w="774">
-    <img class="deco" src="assets/story-01.png" alt="Ваня с рюкзаком заходит домой" style="left:0px;top:0px;width:774px;height:720px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-01.webp" alt="Ваня с рюкзаком заходит домой" style="left:0px;top:0px;width:774px;height:720px">
     </div>
     <div data-a="right" class="screen__text" style="left:827px;top:145px;width:560px">
       <div class="screen__content">
@@ -83,10 +86,10 @@
 
   <!-- 2. Вступление: правила -->
   <section class="screen" data-chapter="Вступление" data-step="1" aria-label="Экран 2">
-    <img class="m-only m-scene" src="assets/m/m-story-02.png" alt="Мама и Ваня разговаривают на диване">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-02.webp" alt="Мама и Ваня разговаривают на диване">
     <div class="art" data-w="774">
     <div class="circle" style="left:-294px;top:-77px;width:1068px;height:1068px;background:var(--peach-200)"></div>
-    <img class="deco" src="assets/story-02.png" alt="Мама и Ваня разговаривают на диване" style="left:0px;top:49px;width:728px;height:671px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-02.webp" alt="Мама и Ваня разговаривают на диване" style="left:0px;top:49px;width:728px;height:671px">
     </div>
     <div data-a="right" class="screen__text" style="left:827px;top:139px;width:560px">
       <h2 class="h2">Представьте: вам кажется, что вы <br>всё объяснили</h2>
@@ -111,16 +114,16 @@
   <section class="screen" data-chapter="Игра" data-step="2" aria-label="Экран 3">
     <div class="art art--center">
     <div class="circle" style="left:333px;top:198px;width:776px;height:776px;background:var(--blue-200)"></div>
-    <img class="deco" src="assets/story-boy.png" alt="Ваня стоит на камне" style="left:271px;top:102px;width:881px;height:618px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-boy.webp" alt="Ваня стоит на камне" style="left:271px;top:102px;width:881px;height:618px">
     </div>
     <div data-a="left" class="player" style="left:60px;top:119px">
-      <img class="player__avatar" src="assets/avatar-vanya.png" alt="">
+      <img decoding="async" loading="lazy" class="player__avatar" src="assets/avatar-vanya.webp" alt="">
       <div class="player__info">
         <div class="player__row"><span class="player__name">vanya_2014</span><span class="player__lvl">12 ур.</span></div>
         <div class="player__xp"><span></span></div>
       </div>
     </div>
-    <img class="m-only m-scene" src="assets/m/m-story-03.png" alt="Ваня стоит на камне">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-03.webp" alt="Ваня стоит на камне">
     <div data-a="left" class="chat" style="left:60px;top:203px;width:320px">
       <div class="chat__head">
         <span class="chat__avatar chat__avatar--text">7А</span>
@@ -154,16 +157,16 @@
 
   <!-- 4. Подарок: переписка с LuckyFox -->
   <section class="screen" data-chapter="Подарок" data-step="3" aria-label="Экран 4">
-    <img class="m-only m-scene" src="assets/m/m-story-04.png" alt="Ваня стоит на камне и думает о подарке">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-04.webp" alt="Ваня стоит на камне и думает о подарке">
     <div class="art art--center">
     <div class="circle" style="left:333px;top:198px;width:776px;height:776px;background:var(--blue-200)"></div>
-    <img class="deco" src="assets/story-boy-4.png" alt="Ваня стоит на камне и думает о подарке" style="left:285px;top:102px;width:853px;height:618px">
-    <img class="deco" src="assets/thought-blue.png" alt="" style="left:804px;top:83px;width:293px;height:182px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-boy-4.webp" alt="Ваня стоит на камне и думает о подарке" style="left:285px;top:102px;width:853px;height:618px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/thought-blue.webp" alt="" style="left:804px;top:83px;width:293px;height:182px">
     <p class="bubble-thought" style="left:854px;top:130px;width:183px">Обычно такие штуки платные. Но вдруг сегодня повезло?</p>
     </div>
     <div data-a="left" class="chat" style="left:60px;top:160px;width:401px">
       <div class="chat__head">
-        <img class="chat__avatar" src="assets/avatar-fox.png" alt="">
+        <img decoding="async" loading="lazy" class="chat__avatar" src="assets/avatar-fox.webp" alt="">
         <div><p class="chat__name">LuckyFox2018</p><p class="chat__status">в сети · 14 ур.</p></div>
       </div>
       <div class="chat__body">
@@ -186,13 +189,13 @@
 
   <!-- 5. Подарок: код из СМС -->
   <section class="screen" data-chapter="Подарок" data-step="3" aria-label="Экран 5">
-    <img class="m-only m-scene" src="assets/m/m-story-05.png" alt="Телефон с перепиской: мошенник просит код из СМС">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-05.webp" alt="Телефон с перепиской: мошенник просит код из СМС">
     <div class="art" data-w="774">
     <div class="circle" style="left:-294px;top:-77px;width:1068px;height:1068px;background:var(--lime-200)"></div>
-    <img class="deco" src="assets/story-05-star-top.png" alt="" style="left:384px;top:167.2px;width:349.2px;height:242.8px">
-    <img class="deco" src="assets/story-05-phone.png" alt="Телефон с перепиской: мошенник просит код из СМС" style="left:95px;top:0.3px;width:557.3px;height:720px">
-    <img class="deco" src="assets/story-05-star-left.png" alt="" style="left:0px;top:247.4px;width:323.6px;height:246.6px">
-    <img class="deco" src="assets/story-05-star-bottom.png" alt="" style="left:155px;top:510.3px;width:209.8px;height:145.9px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-05-star-top.webp" alt="" style="left:384px;top:167.2px;width:349.2px;height:242.8px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-05-phone.webp" alt="Телефон с перепиской: мошенник просит код из СМС" style="left:95px;top:0.3px;width:557.3px;height:720px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-05-star-left.webp" alt="" style="left:0px;top:247.4px;width:323.6px;height:246.6px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-05-star-bottom.webp" alt="" style="left:155px;top:510.3px;width:209.8px;height:145.9px">
     </div>
     <div data-a="right" class="screen__text" style="left:827px;top:187px;width:508px">
       <div class="screen__content">
@@ -206,7 +209,7 @@
 
   <!-- 6. Ловушка: подарок -->
   <section class="screen" data-chapter="Ловушка" data-step="4" data-pink aria-label="Экран 6">
-    <img class="m-only m-scene" src="assets/m/m-story-06.png" alt="Подарочная коробка">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-06.webp" alt="Подарочная коробка">
     <div data-a="left" class="screen__text" style="left:96px;top:184px;width:460px">
       <div class="screen__content">
         <h2 class="h2">Подарок почти у&nbsp;него</h2>
@@ -214,13 +217,13 @@
       </div>
       <button class="btn btn--pink" data-next>Открыть подарок</button>
     </div>
-    <img data-a="right" class="deco" src="assets/gift-closed.png" alt="Подарочная коробка" style="left:799px;top:144px;width:516px;height:532.5px">
+    <img decoding="async" loading="lazy" data-a="right" class="deco" src="assets/gift-closed.webp" alt="Подарочная коробка" style="left:799px;top:144px;width:516px;height:532.5px">
   </section>
 
   <!-- 7. Ловушка: подарок открывается -->
   <section class="screen" data-chapter="Ловушка" data-step="4" data-pink aria-label="Экран 7">
-    <img class="m-only m-scene" src="assets/m/m-story-07.png" alt="Открытая пустая подарочная коробка">
-    <img data-a="right" class="deco" src="assets/gift-open.png" alt="Открытая пустая подарочная коробка" style="left:767px;top:116px;width:581px;height:599px">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-07.webp" alt="Открытая пустая подарочная коробка">
+    <img decoding="async" loading="lazy" data-a="right" class="deco" src="assets/gift-open.webp" alt="Открытая пустая подарочная коробка" style="left:767px;top:116px;width:581px;height:599px">
     <div data-a="left" class="screen__text" style="left:96px;top:184px;width:460px">
       <div class="screen__content">
         <h2 class="h2">А внутри — пусто</h2>
@@ -234,7 +237,7 @@
   <section class="screen" data-chapter="Ловушка" data-step="4" data-pink aria-label="Экран 8">
     <div data-a="right" class="chat chat--large" style="left:764px;top:107px;width:517px">
       <div class="chat__head">
-        <img class="chat__avatar" src="assets/avatar-security.png" alt="">
+        <img decoding="async" loading="lazy" class="chat__avatar" src="assets/avatar-security.webp" alt="">
         <div><p class="chat__name">Служба безопасности Кубомира</p><p class="chat__status">в сети · 100 ур.</p></div>
       </div>
       <div class="chat__body">
@@ -263,7 +266,7 @@
   <section class="screen" data-chapter="Ловушка" data-step="4" data-pink aria-label="Экран 9">
     <div data-a="right" class="chat chat--large" style="left:764px;top:107px;width:517px" aria-hidden="true">
       <div class="chat__head">
-        <img class="chat__avatar" src="assets/avatar-security.png" alt="">
+        <img decoding="async" loading="lazy" class="chat__avatar" src="assets/avatar-security.webp" alt="">
         <div><p class="chat__name">Служба безопасности Кубомира</p><p class="chat__status">в сети · 100 ур.</p></div>
       </div>
       <div class="chat__body">
@@ -294,7 +297,7 @@
   <section class="screen" data-chapter="Изоляция" data-step="5" data-pink aria-label="Экран 10">
     <!-- Ваня набирает «Мам, я тут…», стирает и отправляет «Да» (js/mom-typing.js) -->
     <div data-a="center" class="chat mom-chat" data-mom-typing style="left:544px;top:132px">
-      <div class="chat__head"><img class="chat__avatar" src="assets/avatar-mom.png" alt=""><p class="chat__name">Мама</p></div>
+      <div class="chat__head"><img decoding="async" loading="lazy" class="chat__avatar" src="assets/avatar-mom.webp" alt=""><p class="chat__name">Мама</p></div>
       <div class="chat__body">
         <div class="msg"><span>У тебя всё хорошо?</span><span class="msg__time">16:53</span></div>
         <div class="mom-chat__slot"><div class="msg msg--out" data-reply><span>Да</span><span class="msg__time">16:55 ✓✓</span></div></div>
@@ -312,10 +315,10 @@
 
   <!-- 11. Изоляция: выбор родителя -->
   <section class="screen" data-chapter="Изоляция" data-step="5" aria-label="Экран 11">
-    <img class="m-only m-scene" src="assets/m/m-story-11.png" alt="Ваня сидит у двери, обняв колени">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-11.webp" alt="Ваня сидит у двери, обняв колени">
     <div class="art" data-w="744">
-    <img class="deco" src="assets/story-11.png" alt="Ваня сидит у двери, обняв колени" style="left:0px;top:0px;width:744px;height:720px">
-    <img class="deco" src="assets/thought-blue-mom.png" alt="" style="left:48px;top:120px;width:312px;height:194px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-11.webp" alt="Ваня сидит у двери, обняв колени" style="left:0px;top:0px;width:744px;height:720px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/thought-blue-mom.webp" alt="" style="left:48px;top:120px;width:312px;height:194px">
     <p class="h4" style="left:98px;top:176px;width:229px">— Вань, я дома! Как день?</p>
     </div>
     <div data-a="right" class="screen__text" style="left:827px;top:122px;width:560px">
@@ -333,9 +336,9 @@
 
   <!-- 12. Финал -->
   <section class="screen" data-chapter="Финал" data-step="5" aria-label="Экран 12">
-    <img class="m-only m-scene" src="assets/m/m-story-12.png" alt="Ваня показывает маме телефон">
+    <img decoding="async" loading="lazy" class="m-only m-scene" src="assets/m/m-story-12.webp" alt="Ваня показывает маме телефон">
     <div class="art" data-w="717">
-    <img class="deco" src="assets/story-12.png" alt="Ваня показывает маме телефон" style="left:0px;top:0px;width:717px;height:720px">
+    <img decoding="async" loading="lazy" class="deco" src="assets/story-12.webp" alt="Ваня показывает маме телефон" style="left:0px;top:0px;width:717px;height:720px">
     </div>
     <div data-a="right" class="screen__text" style="left:827px;top:122px;width:541px">
       <div class="screen__content" style="gap:16px">

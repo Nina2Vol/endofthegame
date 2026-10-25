@@ -32,9 +32,19 @@
   window.addEventListener('resize', fit);
 })();
 
-// Картинка ещё не выгружена — прячем значок битого файла.
+// Картинки лежат в WebP, рядом — PNG с тем же именем. Если браузер не открыл WebP
+// (очень старый Safari), подставляем PNG; если нет и его — прячем значок битого файла.
 document.querySelectorAll('img').forEach(function (img) {
-  function hide() { img.classList.add('is-missing'); }
-  if (img.complete && img.naturalWidth === 0) hide();
-  img.addEventListener('error', hide);
+  function fail() {
+    var src = img.getAttribute('src');
+    if (/\.webp$/.test(src)) {
+      var pic = img.parentNode.tagName === 'PICTURE' ? img.parentNode : null;
+      if (pic) pic.querySelectorAll('source').forEach(function (s) { s.srcset = s.srcset.replace(/\.webp$/, '.png'); });
+      img.src = src.replace(/\.webp$/, '.png');
+      return;
+    }
+    img.classList.add('is-missing');
+  }
+  if (img.complete && img.naturalWidth === 0 && img.getAttribute('loading') !== 'lazy') fail();
+  img.addEventListener('error', fail);
 });
