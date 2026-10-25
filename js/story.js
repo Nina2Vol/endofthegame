@@ -24,6 +24,20 @@
     document.body.classList.toggle('is-pink', pink);
     // На телефоне экран длинный — каждый новый начинаем сверху
     window.scrollTo(0, 0);
+    // Картинки скрытых экранов не грузятся (loading="lazy"). Следующий экран
+    // подгружаем заранее, чтобы после «Дальше» он открылся уже с картинками.
+    warm(screens[index + 1]);
+  }
+
+  function warm(screen) {
+    if (!screen) return;
+    screen.querySelectorAll('img[loading="lazy"]').forEach(function (img) {
+      // Только тот вариант, что будет виден: для телефона или для компьютера
+      for (var el = img; el !== screen; el = el.parentElement) {
+        if (getComputedStyle(el).display === 'none') return;
+      }
+      img.loading = 'eager';
+    });
   }
 
   function fromHash() {

@@ -32,6 +32,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Картинки первого экрана: грузим сразу, только нужный вариант (компьютер или телефон) -->
+  <link rel="preload" as="image" href="assets/m/m-hero.webp" type="image/webp" media="(max-width: 900px), (max-width: 1100px) and (max-height: 500px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-book.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-heart.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-cloud.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-bubble-lime.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/hero-question.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
       (function(m,e,t,r,i,k,a){
@@ -62,15 +70,15 @@
   <!-- Первый экран: коллаж в координатах макета 1440 -->
   <section class="hero" data-fit data-stretch aria-labelledby="hero-title">
     <!-- На телефоне вместо коллажа — одна картинка из мобильного макета -->
-    <img class="hero__m-art m-only" src="assets/m/m-hero.png" alt="" width="432" height="220">
+    <img decoding="async" loading="lazy" class="hero__m-art m-only" src="assets/m/m-hero.webp" alt="" width="432" height="220">
     <div class="hero__shapes">
-    <img class="deco" data-m="phone" src="assets/hero-phone.png" alt="" style="left:0px;top:0px;width:736.5px;height:933.5px">
-    <img class="deco" data-m="book" src="assets/hero-book.png" alt="" style="left:78px;top:53px;width:368px;height:296px">
-    <img class="deco" data-m="heart" src="assets/hero-heart.png" alt="" style="left:0.3px;top:368px;width:445.6px;height:389.7px">
-    <img class="deco" data-a="right" data-m="cloud" src="assets/hero-cloud.png" alt="" style="left:782px;top:0px;width:658px;height:536.5px">
-    <img class="deco" data-a="right" data-m="bubble" src="assets/hero-bubble-lime.png" alt="" style="left:977px;top:144px;width:463px;height:739.9px">
+    <img decoding="async" loading="lazy" class="deco" data-m="phone" src="assets/hero-phone.webp" alt="" style="left:0px;top:0px;width:736.5px;height:933.5px">
+    <img decoding="async" loading="lazy" class="deco" data-m="book" src="assets/hero-book.webp" alt="" style="left:78px;top:53px;width:368px;height:296px">
+    <img decoding="async" loading="lazy" class="deco" data-m="heart" src="assets/hero-heart.webp" alt="" style="left:0.3px;top:368px;width:445.6px;height:389.7px">
+    <img decoding="async" loading="lazy" class="deco" data-a="right" data-m="cloud" src="assets/hero-cloud.webp" alt="" style="left:782px;top:0px;width:658px;height:536.5px">
+    <img decoding="async" loading="lazy" class="deco" data-a="right" data-m="bubble" src="assets/hero-bubble-lime.webp" alt="" style="left:977px;top:144px;width:463px;height:739.9px">
     <div class="hero__glow" data-a="center" aria-hidden="true"></div>
-    <img class="deco" data-a="right" data-m="question" src="assets/hero-question.png" alt="" style="left:887px;top:261px;width:477px;height:507px">
+    <img decoding="async" loading="lazy" class="deco" data-a="right" data-m="question" src="assets/hero-question.webp" alt="" style="left:887px;top:261px;width:477px;height:507px">
     </div>
 
     <div class="hero__title" data-a="center">
@@ -80,8 +88,8 @@
 
     <div class="hero__vanya">
     <div class="circle" data-m="vanya-circle" style="left:76px;top:844px;width:544px;height:544px;background:var(--peach-200)"></div>
-    <picture><source media="(max-width: 600px)" srcset="assets/m/m-teen-hero.png"><img class="deco" data-m="vanya" src="assets/teen-hero.png" alt="Ваня — пластилиновый подросток со смартфоном" style="left:25px;top:768px;width:617px;height:667px"></picture>
-    <picture><source media="(max-width: 600px)" srcset="assets/m/m-hello.png"><img class="deco" data-m="hello" src="assets/bubble-blue-small.png" alt="" style="left:471px;top:816px;width:321px;height:199px"></picture>
+    <picture><source media="(max-width: 600px)" srcset="assets/m/m-teen-hero.webp"><img decoding="async" class="deco" data-m="vanya" src="assets/teen-hero.webp" alt="Ваня — пластилиновый подросток со смартфоном" style="left:25px;top:768px;width:617px;height:667px"></picture>
+    <picture><source media="(max-width: 600px)" srcset="assets/m/m-hello.webp"><img decoding="async" class="deco" data-m="hello" src="assets/bubble-blue-small.webp" alt="" style="left:471px;top:816px;width:321px;height:199px"></picture>
     <p class="bubble-text" data-m="hello-text" style="left:529px;top:870px;width:207px">Привет!<br>Я — Ваня</p>
     </div>
 
@@ -100,7 +108,7 @@
           <h3 class="h3">7–9 лет</h3>
           <p class="body">Подарки в играх, «ты выиграл приз», далее следует просьба прислать фото маминой карты!</p>
         </div>
-        <img class="deco" src="assets/age-gift.png" alt="" style="left:59.8px;top:194.2px;width:166.5px;height:171px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/age-gift.webp" alt="" style="left:59.8px;top:194.2px;width:166.5px;height:171px">
         <a class="btn" href="materials.html">Читать</a>
       </article>
 
@@ -111,11 +119,11 @@
         </div>
         <!-- Облачко и его текст в одной обёртке, чтобы двигались вместе -->
         <div class="deco age-bubble" style="left:15px;top:195px;width:161px;height:100px">
-          <img src="assets/age-bubble-blue.png" alt="">
+          <img decoding="async" loading="lazy" src="assets/age-bubble-blue.webp" alt="">
           <p class="age-card__snippet" style="left:28px;top:31px">Скажи код</p>
         </div>
         <div class="deco age-bubble" style="left:146px;top:261px;width:124.3px;height:77.2px">
-          <img src="assets/age-bubble-white.png" alt="">
+          <img decoding="async" loading="lazy" src="assets/age-bubble-white.webp" alt="">
           <p class="age-card__snippet age-card__snippet--code" style="left:35px;top:22px">2378</p>
         </div>
         <a class="btn" href="materials.html">Читать</a>
@@ -126,7 +134,7 @@
           <h3 class="h3">13–14 лет</h3>
           <p class="body">Лёгкий заработок, просьбы «передать карту», потом шантаж перепиской</p>
         </div>
-        <img class="deco" src="assets/age-lock.png" alt="" style="left:49.8px;top:169px;width:182.5px;height:173px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/age-lock.webp" alt="" style="left:49.8px;top:169px;width:182.5px;height:173px">
         <a class="btn" href="materials.html">Читать</a>
       </article>
 
@@ -135,7 +143,7 @@
           <h3 class="h3">Родителям</h3>
           <p class="body">Как поговорить, что настроить и куда звонить, если уже случилось!</p>
         </div>
-        <img class="deco" src="assets/age-check.png" alt="" style="left:52.5px;top:200.9px;width:180px;height:133px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/age-check.webp" alt="" style="left:52.5px;top:200.9px;width:180px;height:133px">
         <a class="btn btn--pink" href="help.html">Читать</a>
       </article>
     </div>
@@ -151,9 +159,9 @@
           <p class="body">Мошенник не просит денег. Он предлагает то, о чём ребёнок давно мечтал, и становится «своим» в игре.</p>
         </div>
         <p class="stage-card__step">Этап 1</p>
-        <img class="deco" src="assets/stage-heart-small.png" alt="" style="left:438px;top:165px;width:209.2px;height:134.8px">
-        <img class="deco" src="assets/stage-heart-large.png" alt="" style="left:515px;top:0.1px;width:225.3px;height:226.8px">
-        <img class="stage-card__m-art m-only" src="assets/m/m-stage-hearts.png" alt="" style="right:0;top:0;width:130.5px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/stage-heart-small.webp" alt="" style="left:438px;top:165px;width:209.2px;height:134.8px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/stage-heart-large.webp" alt="" style="left:515px;top:0.1px;width:225.3px;height:226.8px">
+        <img decoding="async" loading="lazy" class="stage-card__m-art m-only" src="assets/m/m-stage-hearts.webp" alt="" style="right:0;top:0;width:130.5px">
       </article>
       <article class="stage-card stage-card--pink">
         <div class="stage-card__text">
@@ -172,10 +180,10 @@
         <p class="stage-card__step">Этап 3</p>
       </article>
       <article class="stage-card stage-card--peach">
-        <img class="deco" src="assets/stage-star-1.png" alt="" style="left:628px;top:0px;width:112px;height:125.6px">
-        <img class="deco" src="assets/stage-star-2.png" alt="" style="left:525px;top:0px;width:125.2px;height:77.5px">
-        <img class="deco" src="assets/stage-star-3.png" alt="" style="left:544px;top:25px;width:195.8px;height:234.5px">
-        <img class="stage-card__m-art m-only" src="assets/m/m-stage-stars.png" alt="" style="right:0;top:0;width:127px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/stage-star-1.webp" alt="" style="left:628px;top:0px;width:112px;height:125.6px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/stage-star-2.webp" alt="" style="left:525px;top:0px;width:125.2px;height:77.5px">
+        <img decoding="async" loading="lazy" class="deco" src="assets/stage-star-3.webp" alt="" style="left:544px;top:25px;width:195.8px;height:234.5px">
+        <img decoding="async" loading="lazy" class="stage-card__m-art m-only" src="assets/m/m-stage-stars.webp" alt="" style="right:0;top:0;width:127px">
         <div class="stage-card__text">
           <h3 class="h3" style="max-width:325px">Помогает доверие, а не запреты</h3>
           <p class="body" style="max-width:422px">Договорённость заранее, спокойная реакция после ошибки и отдельная детская карта с лимитом.</p>
@@ -200,7 +208,7 @@
       </ol>
       <div class="how__art" aria-hidden="true">
         <div class="circle" style="inset:0;background:var(--blue-200)"></div>
-        <picture><source media="(max-width: 600px)" srcset="assets/m/m-hands.png"><img class="deco" src="assets/hands-phone.png" alt="" style="left:-9px;top:58px;width:539px;height:420px"></picture>
+        <picture><source media="(max-width: 600px)" srcset="assets/m/m-hands.webp"><img decoding="async" loading="lazy" class="deco" src="assets/hands-phone.webp" alt="" style="left:-9px;top:58px;width:539px;height:420px"></picture>
       </div>
     </div>
   </section>
@@ -262,10 +270,10 @@
     <div class="final__stage" data-fit>
       <div class="final__vanya">
       <div class="circle" style="left:351px;top:189px;width:421px;height:421px;background:var(--blue-200)"></div>
-      <picture><source media="(max-width: 600px)" srcset="assets/m/m-cta-teen.png"><img class="deco" src="assets/teen-final.png" alt="Ваня" style="left:422px;top:109px;width:259px;height:482px"></picture>
+      <picture><source media="(max-width: 600px)" srcset="assets/m/m-cta-teen.webp"><img decoding="async" loading="lazy" class="deco" src="assets/teen-final.webp" alt="Ваня" style="left:422px;top:109px;width:259px;height:482px"></picture>
       </div>
       <div class="final__bubble">
-      <picture><source media="(max-width: 600px)" srcset="assets/m/m-cta-bubble.png"><img class="deco" src="assets/bubble-blue-large.png" alt="" style="left:680px;top:0;width:492px;height:306px"></picture>
+      <picture><source media="(max-width: 600px)" srcset="assets/m/m-cta-bubble.webp"><img decoding="async" loading="lazy" class="deco" src="assets/bubble-blue-large.webp" alt="" style="left:680px;top:0;width:492px;height:306px"></picture>
       <p class="bubble-text" style="left:759px;top:82px;width:398px">Привет! Я — Ваня.<br>Хотите узнать, что<br>со мной случилось?</p>
       </div>
       <a class="btn final__btn" href="story.html" style="position:absolute;left:830px;top:250px">Пройти историю →</a>
