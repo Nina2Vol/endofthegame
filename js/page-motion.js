@@ -44,6 +44,11 @@
     '.agree__quote': 0.3
   };
 
+  // В мобилке карточки возрастов — карусель с прокруткой вбок, появление
+  // снизу там мешает (просьба Нины): карточки просто стоят на месте
+  var mobile = window.matchMedia('(max-width: 900px), (max-width: 1100px) and (max-height: 500px)').matches;
+  if (mobile) groups = groups.filter(function (g) { return g[0] !== '.age-card'; });
+
   var items = [];
   groups.forEach(function (g) {
     var els = document.querySelectorAll(g[0]);
@@ -55,7 +60,7 @@
   });
 
   // Картинки и цифры в карточках «выскакивают» после карточки, по очереди
-  document.querySelectorAll('.age-card, .stage-card, .trap-card').forEach(function (card, n) {
+  document.querySelectorAll(mobile ? '.stage-card, .trap-card' : '.age-card, .stage-card, .trap-card').forEach(function (card, n) {
     var base = parseFloat(card.style.getPropertyValue('--delay')) || 0;
     card.querySelectorAll('.deco, .number').forEach(function (el, i) {
       el.setAttribute('data-reveal', 'pop');
