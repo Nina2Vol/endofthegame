@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=202610262100">
+  <link rel="stylesheet" href="css/styles.css?v=202610262110">
   <!-- Картинки первого экрана: грузим сразу, только нужный вариант (компьютер или телефон) -->
   <link rel="preload" as="image" href="assets/m/m-hero.webp?v=2" type="image/webp" media="(max-width: 900px), (max-width: 1100px) and (max-height: 500px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
@@ -216,53 +216,76 @@
   <!-- Если это уже случилось -->
   <section class="section container" id="if-happened" aria-labelledby="happened-title">
     <h2 class="h2 section__title" id="happened-title">Если это уже&nbsp;случилось</h2>
+    <!-- Шаги совпадают с памяткой для родителей на «Куда обратиться» -->
     <div class="steps">
       <details class="step" open>
         <summary class="step__head">
-          <span class="step__title"><span class="step__num">Этап 1</span><span class="step__name">Успокойте ребёнка</span></span>
+          <span class="step__title"><span class="step__num">Этап 1</span><span class="step__name">Выясните, какой код отправил ребёнок</span></span>
           <svg class="step__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
         <ul class="step__body body">
-          <li>Скажите, что он&nbsp;правильно сделал, что&nbsp;рассказал</li>
-          <li>Не&nbsp;ругайте и&nbsp;не&nbsp;отбирайте телефон в&nbsp;ту же&nbsp;минуту</li>
-          <li>Спросите, что именно он&nbsp;успел&nbsp;отправить</li>
+          <li>Попросите показать СМС и&nbsp;переписку с&nbsp;незнакомцем</li>
+          <li>В&nbsp;тексте СМС обычно написано, для&nbsp;какого сервиса&nbsp;код</li>
+          <li>Код от&nbsp;игры или&nbsp;соцсети открывает аккаунт, от&nbsp;банка&nbsp;— деньги, от&nbsp;«Госуслуг»&nbsp;— личные&nbsp;данные</li>
         </ul>
       </details>
       <details class="step">
         <summary class="step__head">
-          <span class="step__title"><span class="step__num">Этап 2</span><span class="step__name">Остановите переписку</span></span>
+          <span class="step__title"><span class="step__num">Этап 2</span><span class="step__name">Защитите аккаунт</span></span>
           <svg class="step__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
-        <!-- В макете текст раскрытых этапов 2–4 не нарисован, это черновик -->
         <ul class="step__body body">
-          <li>Не&nbsp;отвечайте мошеннику и&nbsp;не&nbsp;удаляйте переписку</li>
-          <li>Сделайте скриншоты сообщений, ника и&nbsp;номера</li>
-          <li>Заблокируйте собеседника и&nbsp;пожалуйтесь на&nbsp;него в&nbsp;игре или&nbsp;мессенджере</li>
+          <li>Откройте приложение сами, не&nbsp;по&nbsp;ссылкам незнакомца</li>
+          <li>Смените пароль, завершите чужие сеансы, включите двухфакторную&nbsp;защиту</li>
+          <li>Сделайте скриншоты переписки и&nbsp;СМС, ничего не&nbsp;удаляйте</li>
         </ul>
       </details>
       <details class="step">
         <summary class="step__head">
-          <span class="step__title"><span class="step__num">Этап 3</span><span class="step__name">Позвоните в&nbsp;банк и&nbsp;смените пароли</span></span>
+          <span class="step__title"><span class="step__num">Этап 3</span><span class="step__name">Код от&nbsp;банка&nbsp;— сразу звоните на&nbsp;горячую линию</span></span>
           <svg class="step__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
         <ul class="step__body body">
-          <li>Позвоните по&nbsp;номеру на&nbsp;обороте карты и&nbsp;заблокируйте&nbsp;её</li>
-          <li>Смените пароли от&nbsp;почты, игр и&nbsp;Госуслуг, выйдите со&nbsp;всех&nbsp;устройств</li>
-          <li>Включите двухфакторную защиту там, где её не&nbsp;было</li>
+          <li>Номер берите на&nbsp;обороте карты или&nbsp;на&nbsp;официальном сайте&nbsp;банка</li>
+          <li>Попросите проверить операции и&nbsp;заблокировать карту или&nbsp;онлайн-банк</li>
+          <li>Не&nbsp;«отменяйте перевод» по&nbsp;инструкции&nbsp;незнакомца</li>
         </ul>
       </details>
       <details class="step">
         <summary class="step__head">
-          <span class="step__title"><span class="step__num">Этап 4</span><span class="step__name">Заявление и&nbsp;поддержка</span></span>
+          <span class="step__title"><span class="step__num">Этап 4</span><span class="step__name">Код от&nbsp;«Госуслуг»</span></span>
           <svg class="step__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </summary>
         <ul class="step__body body">
-          <li>Подайте заявление в&nbsp;полицию, приложите&nbsp;скриншоты</li>
-          <li>Если ребёнку тяжело, позвоните на&nbsp;детский телефон доверия 8 800&nbsp;2000-122</li>
-          <li>Подробнее&nbsp;— на&nbsp;странице <a href="help.html"><u>«Куда обратиться»</u></a></li>
+          <li>Войдите через официальный сайт или&nbsp;приложение и&nbsp;смените&nbsp;пароль</li>
+          <li>Проверьте сеансы, контакты и&nbsp;историю действий</li>
+          <li>Нет доступа&nbsp;— в&nbsp;поддержку, данные уже используют&nbsp;— в&nbsp;полицию</li>
+        </ul>
+      </details>
+      <details class="step">
+        <summary class="step__head">
+          <span class="step__title"><span class="step__num">Этап 5</span><span class="step__name">Поговорите с&nbsp;ребёнком без&nbsp;обвинений</span></span>
+          <svg class="step__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <ul class="step__body body">
+          <li>Скажите: «Спасибо, что&nbsp;рассказал. Давай вместе&nbsp;разберёмся»</li>
+          <li>Сначала решите проблему, потом спокойно&nbsp;обсудите</li>
+          <li>Ошибка&nbsp;— не&nbsp;повод для&nbsp;наказания: на&nbsp;уловки попадаются и&nbsp;взрослые</li>
+        </ul>
+      </details>
+      <details class="step">
+        <summary class="step__head">
+          <span class="step__title"><span class="step__num">Этап 6</span><span class="step__name">Договоритесь, что&nbsp;делать в&nbsp;следующий раз</span></span>
+          <svg class="step__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <ul class="step__body body">
+          <li>Коды из&nbsp;СМС никому, даже «поддержке» и&nbsp;друзьям</li>
+          <li>Требуют код, угрожают или&nbsp;обещают подарок&nbsp;— прекратить разговор и&nbsp;прийти к&nbsp;взрослому</li>
+          <li>Рассказать вам можно всегда, даже если уже&nbsp;ответил</li>
         </ul>
       </details>
     </div>
+    <div class="steps__more"><a class="btn" href="help.html#parents-memo">Куда обратиться</a></div>
   </section>
 
   <!-- Финальный призыв -->
@@ -309,10 +332,10 @@
   </div>
 </footer>
 
-<script src="js/fit.js?v=202610262100"></script>
-<script src="js/menu.js?v=202610262100"></script>
-<script src="js/age-center.js?v=202610262100"></script>
-<script src="js/hero-motion.js?v=202610262100"></script>
-<script src="js/page-motion.js?v=202610262100"></script>
+<script src="js/fit.js?v=202610262110"></script>
+<script src="js/menu.js?v=202610262110"></script>
+<script src="js/age-center.js?v=202610262110"></script>
+<script src="js/hero-motion.js?v=202610262110"></script>
+<script src="js/page-motion.js?v=202610262110"></script>
 </body>
 </html>
