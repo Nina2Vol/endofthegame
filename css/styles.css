@@ -936,10 +936,14 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   /* Первый экран: картинка, заголовок, Ваня, вступление — в колонку */
   .hero { width: auto !important; height: auto; zoom: 1 !important; display: flex; flex-direction: column; padding: 84px 0 0; }
   .hero__shapes, .hero__glow { display: none; }
-  .hero__m-art { position: relative; width: calc(100% * 432 / 390); max-width: none; height: auto; margin-left: calc(-100% * 21 / 390); }
-  .hero__title { position: relative; left: auto; top: auto; width: auto; margin-top: -16px; padding: 0 20px; gap: 32px; translate: none; }
-  .hero__title .lead { width: auto; font: 500 18px/24px var(--font-heading); }
-  .hero__vanya { display: block; position: relative; margin-top: 96px; width: 100%; aspect-ratio: 390 / 324; }
+  /* Первый экран по макету «главная · mobile»: книга, телефон, вопрос сверху,
+     сердце, облачко и звезда по краям — одной картинкой под текстом (390×580) */
+  .hero__m-art { position: absolute; left: 0; top: 0; z-index: 0; width: 100%; max-width: none; height: auto; margin: 0; pointer-events: none; }
+  .hero__title { position: relative; z-index: 1; left: auto; top: auto; width: auto; margin-top: calc(100vw * 288 / 390 - 84px); padding: 0 20px; gap: 32px; translate: none; }
+  .hero__title .lead { width: auto; font: 400 18px/26px var(--font-text); }
+  .hero__title .h1, .hero__title .lead { text-wrap: wrap; }
+  .hero__title .lead { max-width: 350px; margin: 0 auto; }
+  .hero__vanya { display: block; position: relative; margin-top: calc(100vw * 90 / 390); width: 100%; aspect-ratio: 390 / 324; }
   .hero__vanya > * { translate: none !important; }
   .hero__vanya [data-m="vanya-circle"] { left: 6.65% !important; top: 7.37% !important; width: 70.93% !important; height: auto !important; aspect-ratio: 1; }
   .hero__vanya [data-m="vanya"] { left: 0 !important; top: 0 !important; width: 80.44% !important; height: 100% !important; object-fit: contain; object-position: left bottom; }
@@ -1211,9 +1215,10 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 /* ---------- Планшеты и широкие окна в раскладке колонкой ----------
    Колонка не растягивается на всю ширину: держим ширину телефона-«плюс» по центру */
 @media (min-width: 601px) and (max-width: 900px), (min-width: 601px) and (max-width: 1100px) and (max-height: 500px) {
-  .hero__m-art { width: 600px; margin: 0 auto; }
+  .hero__m-art { width: 600px; left: 50%; margin-left: -300px; }
   .hero__title, .hero__intro { width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; }
-  .hero__title { margin-top: -16px; }
+  .hero__title { margin-top: calc(600px * 288 / 390 - 84px); }
+  .hero__vanya { margin-top: 90px; }
   .hero__vanya { width: 460px; margin-left: auto; margin-right: auto; }
   .hero__vanya [data-m="hello-text"] { font-size: 18.5px; }
   .stages, .stages--bottom { grid-template-columns: 1fr 1fr; }

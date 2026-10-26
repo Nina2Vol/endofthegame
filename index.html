@@ -31,9 +31,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=202610262005">
+  <link rel="stylesheet" href="css/styles.css?v=202610262015">
   <!-- Картинки первого экрана: грузим сразу, только нужный вариант (компьютер или телефон) -->
-  <link rel="preload" as="image" href="assets/m/m-hero.webp" type="image/webp" media="(max-width: 900px), (max-width: 1100px) and (max-height: 500px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/m/m-hero.webp?v=2" type="image/webp" media="(max-width: 900px), (max-width: 1100px) and (max-height: 500px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero-phone.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero-book.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero-heart.webp" type="image/webp" media="(min-width: 1101px), (min-width: 901px) and (min-height: 501px)" fetchpriority="high">
@@ -70,7 +70,7 @@
   <!-- Первый экран: коллаж в координатах макета 1440 -->
   <section class="hero" data-fit data-stretch aria-labelledby="hero-title">
     <!-- На телефоне вместо коллажа — одна картинка из мобильного макета -->
-    <img decoding="async" loading="lazy" class="hero__m-art m-only" src="assets/m/m-hero.webp" alt="" width="432" height="220">
+    <img decoding="async" fetchpriority="high" class="hero__m-art m-only" src="assets/m/m-hero.webp?v=2" alt="" width="1170" height="1740">
     <div class="hero__shapes">
     <img decoding="async" loading="lazy" class="deco" data-m="phone" src="assets/hero-phone.webp" alt="" style="left:0px;top:0px;width:736.5px;height:933.5px">
     <img decoding="async" loading="lazy" class="deco" data-m="book" src="assets/hero-book.webp" alt="" style="left:78px;top:53px;width:368px;height:296px">
@@ -309,10 +309,10 @@
   </div>
 </footer>
 
-<script src="js/fit.js?v=202610262005"></script>
-<script src="js/menu.js?v=202610262005"></script>
-<script src="js/age-center.js?v=202610262005"></script>
-<script src="js/hero-motion.js?v=202610262005"></script>
-<script src="js/page-motion.js?v=202610262005"></script>
+<script src="js/fit.js?v=202610262015"></script>
+<script src="js/menu.js?v=202610262015"></script>
+<script src="js/age-center.js?v=202610262015"></script>
+<script src="js/hero-motion.js?v=202610262015"></script>
+<script src="js/page-motion.js?v=202610262015"></script>
 </body>
 </html>
