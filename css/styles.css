@@ -1214,6 +1214,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .page .final { margin-top: 64px; }
   .page-head { gap: 16px; }
   .page-head .h1, .help-head .h1 { font-size: 36px; line-height: 42px; }
+  /* длинное слово «мошенничестве» не влезает в 36px на узких телефонах */
+  .page-head .h1--long { font-size: min(36px, 8.4vw); line-height: 1.17; }
   .page-head .lead, .help-head .lead { font-size: 18px; line-height: 24px; }
   .memo { flex-direction: column; align-items: stretch; gap: 0; margin-top: 32px; min-height: 0; border-radius: 28px; }
   .memo__text { padding: 24px 20px 0; gap: 24px; }
