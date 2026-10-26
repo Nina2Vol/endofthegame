@@ -621,7 +621,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .shout__text { font: 400 23.8px/35.7px var(--font-text); text-transform: uppercase; }
 .shout__time { font: 500 21.4px/29.2px var(--font-text); opacity: .7; }
 
-.timer { padding: 4px 8px; border-radius: var(--radius-s); background: var(--pink-500); font: 500 13px/18px var(--font-text); }
+.timer { padding: 8px 16px; border-radius: var(--radius-m); background: var(--pink-500); font: 500 22px/28px var(--font-text); }
 
 /* Пуш от мамы на краю экрана */
 .push { display: flex; gap: 12px; width: 300px; padding: 16px; border-radius: var(--radius-s); background: var(--bg-page); opacity: .45; filter: blur(1px); }
@@ -811,6 +811,12 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .screen.is-active .chat__body > :nth-child(5) { --t: 2.9s; }
   .screen.is-active .chat__body > :nth-child(6) { --t: 3.5s; }
   .screen.is-active[aria-label="Экран 9"] .chat .chat__body > * { animation: none; }
+  /* 8. Чат «службы»: сообщения приходят медленнее и мягче (просьба Нины) */
+  .screen.is-active[aria-label="Экран 8"] .chat__body > * { animation: msg-in .8s cubic-bezier(.25, .8, .25, 1) var(--t, .8s) both; }
+  .screen.is-active[aria-label="Экран 8"] .chat__body > :nth-child(2) { --t: 2.2s; }
+  .screen.is-active[aria-label="Экран 8"] .chat__body > :nth-child(3) { --t: 3.6s; }
+  .screen.is-active[aria-label="Экран 8"] .chat__body > :nth-child(4) { --t: 5s; }
+  .screen.is-active[aria-label="Экран 8"] .chat__body > :nth-child(5) { --t: 6.4s; }
   .typing { animation: breathe 1.2s ease-in-out infinite; }
 
   /* 2. Правила появляются по одному */
@@ -846,6 +852,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .screen.is-active[aria-label="Экран 9"] .chat--large { animation: none; }
   .screen.is-active .timer { animation: pop .4s ease-out .3s both, pulse 1s ease-in-out 1s infinite; }
   .screen.is-active .push { animation: from-right-soft .6s ease-out 3.4s both; }
+  .screen.is-active[aria-label="Экран 8"] .push { animation-delay: 7.4s; }
   .screen.is-active[aria-label="Экран 9"] .push { --t: 0s; animation-delay: .2s; }
   .screen.is-active .shout { animation: slam .45s cubic-bezier(.3, 1.4, .5, 1) var(--t, .3s) both, shake .5s ease-in-out calc(var(--t, .3s) + .45s); }
   .screen.is-active .shout:nth-child(5) { --t: .9s; }
@@ -878,7 +885,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 /* Чат «службы безопасности» — окно фиксированной высоты, лента внутри
    прокручивается к новым сообщениям (js/chat-scroll.js) */
 .chat--large { height: 560px; }
-.chat--large .chat__body { flex: 1; min-height: 0; overflow: hidden; }
+/* Ленту чата можно прокручивать вручную */
+.chat--large .chat__body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: rgba(29, 27, 26, .2) transparent; }
 
 /* =========================================================
    Мобильная версия (макеты 390 в Фигме: «главная · mobile»,
@@ -1052,7 +1060,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .screen[aria-label="Экран 8"] .btn, .screen[aria-label="Экран 9"] .btn, .screen[aria-label="Экран 11"] .btn { order: 2; align-self: flex-start; }
 
   /* 8–9: таймер крупнее */
-  .screen[data-pink] .timer { padding: 6px 14px; border-radius: var(--radius-m); font-size: 20px; line-height: 26px; }
+  .screen[data-pink] .timer { padding: 6px 14px; border-radius: var(--radius-m); font-size: 22px; line-height: 28px; }
 
   /* 9: чат «службы» фоном, крики поверх него */
   .screen.is-active[aria-label="Экран 9"] { display: grid; grid-template-columns: 100%; align-content: start; }
