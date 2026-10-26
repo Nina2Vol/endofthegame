@@ -1125,7 +1125,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .memo__tag { font: 600 16px/20px var(--font-text); letter-spacing: 0.08em; text-transform: uppercase; }
 .memo .lead { max-width: 482px; }
 .memo .btn { align-self: flex-start; }
-.memo__art { flex: 0 0 522px; width: 522px; height: 480px; object-fit: cover; object-position: left bottom; }
+.memo__art { flex: 0 0 522px; width: 522px; height: 480px; margin-right: 96px; object-fit: cover; object-position: left bottom; }
 
 /* Куда обратиться */
 .help-head { display: flex; align-items: center; gap: 40px; }
@@ -1166,7 +1166,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .help-step { min-height: 0; }
   .emergency { flex-basis: 46%; }
   .emergency__number { font-size: 96px; line-height: 100px; }
-  .memo__art { flex-basis: 44%; width: 44%; height: auto; }
+  .memo__art { flex-basis: 44%; width: 44%; height: auto; margin-right: 32px; }
   .contact-row__name { flex-basis: 340px; }
   .contact-row__more { margin-left: 380px; }
 }
