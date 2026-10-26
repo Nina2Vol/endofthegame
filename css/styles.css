@@ -39,7 +39,7 @@
 
 /* Без висячих слов: заголовки ровными строками, абзацы без одного слова в последней строке */
 h1, h2, h3, h4 { text-wrap: balance; }
-p, li { text-wrap: pretty; }
+/* p, li без text-wrap: pretty: он рвал строки раньше времени и давал дыры в тексте; висячие слова держит &nbsp; */
 
 html { -webkit-text-size-adjust: 100%; }
 
@@ -996,9 +996,9 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .final__bubble .bubble-text { left: 16% !important; top: 22% !important; width: 76% !important; font-size: 20px; line-height: 26px; }
   .final__bubble { order: 2; margin-top: 24px; }
   .final__btn { order: 1; position: relative !important; left: auto !important; top: auto !important; }
-  .final__vanya { order: 3; display: block; position: relative; width: 350px; max-width: 100%; height: 230px; margin-top: 4px; overflow: hidden; }
-  .final__vanya .circle { left: 24.3% !important; top: 75px !important; width: 235px !important; height: 235px !important; }
-  .final__vanya .deco { left: 0 !important; top: 0 !important; width: 100% !important; height: 100% !important; object-fit: contain; }
+  .final__vanya { order: 3; display: block; position: relative; width: 350px; max-width: 100%; height: auto; aspect-ratio: 350 / 230; margin-top: 4px; overflow: hidden; }
+  .final__vanya .circle { left: 24.3% !important; top: 32.6% !important; width: 67.1% !important; height: auto !important; aspect-ratio: 1; }
+  .final__vanya .deco { left: 0 !important; top: 0 !important; width: 100% !important; height: 100% !important; object-fit: contain; object-position: center bottom; }
 
   /* Подвал */
   .footer { padding: 40px 0; }
