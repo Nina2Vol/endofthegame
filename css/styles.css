@@ -1033,6 +1033,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .screen .m-scene { display: block; }
   .m-scene { width: calc(100% + 40px); max-width: none; height: auto; margin: 0 -20px; order: -1; }
   .screen[aria-label="Экран 3"] .m-scene, .screen[aria-label="Экран 4"] .m-scene { order: 0; }
+  .screen[aria-label="Экран 12"] .m-scene { width: 100%; margin: 0; }
   .screen[aria-label="Экран 3"] .player { order: -2; }
 
   .screen__text { width: auto !important; gap: 32px; }
