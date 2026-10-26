@@ -967,9 +967,11 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .stage-card .deco { display: none; }
   .stage-card__m-art { position: absolute; height: auto; pointer-events: none; }
   .stage-card__text, .stage-card--lime .stage-card__text, .stage-card--peach .stage-card__text { max-width: none; }
-  .stage-card--peach .h3 { max-width: 236px !important; }
-  .stage-card--peach .body { max-width: none !important; }
-  .stage-card--lime .h3 { max-width: calc(100% - 92px); }
+  /* В мобилке карточки этапов без картинок: текст во всю ширину (просьба Нины) */
+  .stage-card .stage-card__m-art { display: none; }
+  .stage-card .h3, .stage-card .body { max-width: none !important; }
+  /* Заголовки в две строки: на узких телефонах шрифт чуть меньше */
+  .stage-card .h3 { font-size: min(20px, calc((100vw - 88px) * .0625)); line-height: 1.3; }
 
   /* Как устроена история */
   .how { width: auto !important; height: auto; zoom: 1 !important; padding: 0 20px; }
