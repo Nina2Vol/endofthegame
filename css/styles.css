@@ -763,7 +763,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .stage-card .deco[src*="star"] { --idle: twinkle; --idle-time: 3.2s; }
   .stage-card .deco[src*="star-2"] { --idle-time: 2.6s; }
   .how__art .deco { --idle: float; --idle-time: 5s; }
-  .final .deco[src*="bubble"], .final .bubble-text { --idle: float; --idle-time: 4.5s; transform-origin: 10% 90%; }
+  .final__bubble { --idle: float; --idle-time: 4.5s; transform-origin: 700px 280px; }
 
   /* Наведение: карточка приподнимается, картинка подпрыгивает */
   .age-card, .stage-card, .option-card { transition: translate .3s ease, box-shadow .3s ease; }
@@ -902,7 +902,9 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .m-only { display: none; }
 .header__burger { display: none; }
 /* Обёртки для телефона; на компьютере не влияют на раскладку */
-.hero__shapes, .hero__vanya, .final__vanya, .final__bubble { display: contents; }
+.hero__shapes, .hero__vanya, .final__vanya { display: contents; }
+/* Облачко и его текст — одна обёртка во весь финальный блок: двигаются вместе */
+.final__bubble { position: absolute; inset: 0; pointer-events: none; }
 
 @media (max-width: 900px), (max-width: 1100px) and (max-height: 500px) {
   .m-only { display: block; }
@@ -999,7 +1001,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   /* Финал: облачко, кнопка, Ваня стоит на подвале */
   .final { margin-top: 64px; }
   .final__stage { width: auto !important; height: auto; zoom: 1 !important; display: flex; flex-direction: column; align-items: center; padding: 0 20px; }
-  .final__bubble { display: block; position: relative; width: 100%; max-width: 340px; aspect-ratio: 492 / 306; margin-left: 10px; }
+  .final__bubble { display: block; position: relative; inset: auto; transform-origin: 10% 90%; width: 100%; max-width: 340px; aspect-ratio: 492 / 306; margin-left: 10px; }
   .final__bubble .deco { left: 0 !important; top: 0 !important; width: 100% !important; height: 100% !important; }
   /* Текст по центру тела облачка (без хвостика): тело — 5.4–94.7% по ширине и 18.9–70.9% по высоте картинки */
   .final__bubble .bubble-text { left: 5.4% !important; top: 18.9% !important; width: 89.3% !important; height: 52% !important; display: flex; align-items: center; justify-content: center; font-size: 20px; line-height: 26px; }

@@ -16,7 +16,7 @@
     ['.step', 'rise', 0.1],
     ['.final .circle', 'pop', 0],
     ['.final .deco[src*="teen"]', 'rise', 0],
-    ['.final .deco[src*="bubble"], .final .bubble-text', 'pop', 0],
+    ['.final__bubble', 'pop', 0],
     ['.final .btn', 'rise', 0],
     // Разделы «Материалы» и «Куда обратиться»
     ['.page-head > *, .help-head__text > *', 'rise', 0.12],
@@ -37,7 +37,7 @@
   var extra = {
     '.how__art .deco': 0.25,
     '.final .deco[src*="teen"]': 0.15,
-    '.final .deco[src*="bubble"], .final .bubble-text': 0.5,
+    '.final__bubble': 0.5,
     '.final .btn': 0.8,
     '.emergency': 0.2,
     '.emergency__number': 0.5,
