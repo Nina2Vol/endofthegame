@@ -696,7 +696,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .hero [data-m="phone"]    { animation: grow 1s cubic-bezier(.2, .9, .3, 1.15) .1s both, float 7s ease-in-out 1.1s infinite; transform-origin: 0 0; }
   .hero [data-m="book"]     { animation: from-top 1s cubic-bezier(.2, .9, .3, 1.2) .35s both, float 5.5s ease-in-out 1.35s infinite reverse; --r: 4deg; }
-  .hero [data-m="heart"]    { animation: pop .9s cubic-bezier(.3, 1.6, .5, 1) .6s both, beat 2.6s ease-in-out 1.5s infinite; transform-origin: 0 60%; }
+  .hero [data-m="heart"]    { animation: pop .9s cubic-bezier(.3, 1.6, .5, 1) .6s both, beat 4.5s ease-in-out 1.5s infinite; transform-origin: 0 60%; }
   .hero [data-m="cloud"]    { animation: grow 1s cubic-bezier(.2, .9, .3, 1.15) .2s both, float 8s ease-in-out 1.2s infinite; transform-origin: 100% 0; }
   .hero [data-m="bubble"]   { animation: grow 1s cubic-bezier(.2, .9, .3, 1.15) .4s both, float 6.5s ease-in-out 1.4s infinite reverse; transform-origin: 100% 50%; }
   .hero [data-m="question"] { animation: drop 1.1s cubic-bezier(.3, 1.5, .5, 1) .7s both, swing 4s ease-in-out 1.8s infinite; transform-origin: 55% 85%; }
@@ -725,7 +725,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 @keyframes pop        { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: none; } }
 @keyframes rise       { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
 @keyframes float      { 0%, 100% { transform: none; } 50% { transform: translateY(-14px) rotate(var(--r, 0deg)); } }
-@keyframes beat       { 0%, 60%, 100% { transform: none; } 15% { transform: scale(1.06); } 30% { transform: scale(.98); } 45% { transform: scale(1.04); } }
+/* Сердечки: одна мягкая пульсация (Нина просила не сильно) */
+@keyframes beat       { 0%, 100% { transform: none; } 50% { transform: scale(1.025); } }
 @keyframes swing      { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg) translateY(-6px); } }
 @keyframes drift      { 0%, 100% { transform: none; } 50% { transform: translateY(-5px); } }
 @keyframes nudge      { 0%, 100% { transform: none; } 30% { transform: translateX(4px); } 60% { transform: translateX(-2px); } }
@@ -750,7 +751,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .age-card:nth-child(2) .deco + .deco { --idle-time: 8s; }
   .age-card:nth-child(3) .deco { --idle-time: 7.5s; }
   .age-card:nth-child(4) .deco { --idle-time: 6.5s; }
-  .stage-card .deco[src*="heart"] { --idle: beat; --idle-time: 2.8s; transform-origin: 50% 60%; }
+  .stage-card .deco[src*="heart"] { --idle: beat; --idle-time: 4.5s; transform-origin: 50% 60%; }
   .stage-card .deco[src*="star"] { --idle: twinkle; --idle-time: 3.2s; }
   .stage-card .deco[src*="star-2"] { --idle-time: 2.6s; }
   .how__art .deco { --idle: float; --idle-time: 5s; }
