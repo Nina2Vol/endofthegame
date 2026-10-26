@@ -621,7 +621,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .shout__text { font: 400 23.8px/35.7px var(--font-text); text-transform: uppercase; }
 .shout__time { font: 500 21.4px/29.2px var(--font-text); opacity: .7; }
 
-.timer { padding: 8px 16px; border-radius: var(--radius-m); background: var(--pink-500); font: 500 22px/28px var(--font-text); }
+.timer { padding: 8px 16px; border-radius: var(--radius-m); background: var(--pink-500); font: 500 22px/28px var(--font-text); font-variant-numeric: tabular-nums; }
 
 /* Пуш от мамы на краю экрана */
 .push { display: flex; gap: 12px; width: 300px; padding: 16px; border-radius: var(--radius-s); background: var(--bg-page); opacity: .45; filter: blur(1px); }
