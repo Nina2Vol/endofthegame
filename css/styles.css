@@ -966,10 +966,10 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .stage-card { min-height: 0; height: auto; padding: 24px; gap: 24px; }
   .stage-card .deco { display: none; }
   .stage-card__m-art { position: absolute; height: auto; pointer-events: none; }
-  .stage-card__text { max-width: none; }
+  .stage-card__text, .stage-card--lime .stage-card__text, .stage-card--peach .stage-card__text { max-width: none; }
   .stage-card--peach .h3 { max-width: 236px !important; }
   .stage-card--peach .body { max-width: none !important; }
-  .stage-card--lime .h3 { max-width: 220px; }
+  .stage-card--lime .h3 { max-width: calc(100% - 92px); }
 
   /* Как устроена история */
   .how { width: auto !important; height: auto; zoom: 1 !important; padding: 0 20px; }
