@@ -756,7 +756,6 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .stage-card .deco[src*="star-2"] { --idle-time: 2.6s; }
   .how__art .deco { --idle: float; --idle-time: 5s; }
   .final .deco[src*="bubble"], .final .bubble-text { --idle: float; --idle-time: 4.5s; transform-origin: 10% 90%; }
-  .final .btn { --idle: breathe; --idle-time: 2.4s; }
 
   /* Наведение: карточка приподнимается, картинка подпрыгивает */
   .age-card, .stage-card, .option-card { transition: translate .3s ease, box-shadow .3s ease; }
