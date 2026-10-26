@@ -218,9 +218,10 @@ img.is-missing { visibility: hidden; }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  width: 330px;
+  min-width: 330px;
   height: 42px;
   padding: 11.6px;
+  white-space: nowrap;
   border-radius: 16px;
   background: var(--bg-surface);
   font: 400 18.5px/25.5px var(--font-text);
