@@ -1156,7 +1156,6 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .contact-row:hover { translate: 6px 0; }
   .help-step .number { transition: scale .35s cubic-bezier(.3, 1.6, .5, 1); transform-origin: left bottom; }
   .help-step:hover .number { scale: 1.15; }
-  .memo__art { --idle: float; --idle-time: 5s; }
   .emergency__number { --idle: breathe; --idle-time: 2.6s; transform-origin: left center; }
   .contact-row__more:not([hidden]) { animation: rise .45s cubic-bezier(.2, .8, .2, 1) both; }
 }

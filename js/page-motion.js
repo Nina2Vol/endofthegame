@@ -21,7 +21,6 @@
     // Разделы «Материалы» и «Куда обратиться»
     ['.page-head > *, .help-head__text > *', 'rise', 0.12],
     ['.memo', 'rise', 0],
-    ['.memo__art', 'rise', 0],
     ['.emergency', 'pop', 0],
     ['.emergency__number', 'pop', 0],
     ['.help-step', 'rise', 0.12],
@@ -40,7 +39,6 @@
     '.final .deco[src*="teen"]': 0.15,
     '.final .deco[src*="bubble"], .final .bubble-text': 0.5,
     '.final .btn': 0.8,
-    '.memo__art': 0.3,
     '.emergency': 0.2,
     '.emergency__number': 0.5,
     '.agree__quote': 0.3
