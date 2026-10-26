@@ -25,7 +25,14 @@
     ['.emergency', 'pop', 0],
     ['.emergency__number', 'pop', 0],
     ['.help-step', 'rise', 0.12],
-    ['.contact-row', 'from-left-soft', 0.1]
+    ['.contact-row', 'from-left-soft', 0.1],
+    // «Как устроена ловушка»: этапы появляются строго по очереди 1, 2, 3, 4
+    ['.after-hero > *', 'rise', 0.12],
+    ['.trap-card', 'rise', 0.35],
+    ['.help-card', 'rise', 0.15],
+    ['.agree__text > *', 'rise', 0.1],
+    ['.agree__quote', 'pop', 0],
+    ['.link-card', 'rise', 0.15]
   ];
   // Задержка внутри блока, чтобы картинки появлялись после своей карточки
   var extra = {
@@ -35,7 +42,8 @@
     '.final .btn': 0.8,
     '.memo__art': 0.3,
     '.emergency': 0.2,
-    '.emergency__number': 0.5
+    '.emergency__number': 0.5,
+    '.agree__quote': 0.3
   };
 
   var items = [];
@@ -48,10 +56,10 @@
     });
   });
 
-  // Картинки в карточках «выскакивают» после карточки, по очереди
-  document.querySelectorAll('.age-card, .stage-card').forEach(function (card, n) {
+  // Картинки и цифры в карточках «выскакивают» после карточки, по очереди
+  document.querySelectorAll('.age-card, .stage-card, .trap-card').forEach(function (card, n) {
     var base = parseFloat(card.style.getPropertyValue('--delay')) || 0;
-    card.querySelectorAll('.deco').forEach(function (el, i) {
+    card.querySelectorAll('.deco, .number').forEach(function (el, i) {
       el.setAttribute('data-reveal', 'pop');
       el.style.setProperty('--delay', (base + 0.35 + i * 0.2) + 's');
       items.push(el);
@@ -63,7 +71,7 @@
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       // Карточка с картинками открывается целиком, чтобы задержки шли от неё
-      var card = e.target.closest('.age-card, .stage-card');
+      var card = e.target.closest('.age-card, .stage-card, .trap-card');
       var targets = card ? [card].concat([].slice.call(card.querySelectorAll('[data-reveal]'))) : [e.target];
       targets.forEach(function (t) { t.classList.add('is-in'); io.unobserve(t); });
     });

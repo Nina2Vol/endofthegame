@@ -454,7 +454,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .after-hero .h2 { max-width: 876px; }
 .trap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; }
 .trap-card { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-l); background: var(--bg-surface); }
-.trap-card__top { display: flex; flex-direction: column; gap: 12px; }
+.trap-card__top { display: flex; flex-direction: column; gap: 12px; } .trap-card .number { align-self: flex-start; }
 
 .help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .help-card { display: flex; flex-direction: column; border-radius: var(--radius-l); background: var(--bg-surface); overflow: hidden; }
