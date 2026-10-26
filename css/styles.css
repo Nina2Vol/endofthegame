@@ -37,6 +37,10 @@
 *::before,
 *::after { box-sizing: border-box; }
 
+/* Без висячих слов: заголовки ровными строками, абзацы без одного слова в последней строке */
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -260,6 +264,7 @@ img.is-missing { visibility: hidden; }
 
 /* Абсолютно позиционированные иллюстрации (координаты из макета) */
 .deco { position: absolute; pointer-events: none; user-select: none; }
+.screen img.gift-link { pointer-events: auto; cursor: pointer; }
 .age-bubble img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .circle { position: absolute; border-radius: 50%; }
 
@@ -657,8 +662,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 @keyframes caret { 50% { opacity: 0; } }
 
 /* Варианты ответа */
-.choice { display: flex; align-items: center; gap: 16px; width: 462px; padding: 16px 20px; border: 0; border-radius: var(--radius-l); background: var(--bg-surface); font: 400 16px/22px var(--font-text); color: inherit; text-align: left; cursor: pointer; transition: background .15s ease; }
-.choice:hover { background: var(--lime-200); }
+/* Варианты ответа — кнопки в стиле сайта, текст может переноситься */
+.btn.choice { justify-content: flex-start; max-width: 462px; white-space: normal; text-align: left; }
 .badge { flex: 0 0 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-s); background: var(--lime-500); color: #fff; font: 500 22px/28px var(--font-heading); }
 .badge--s { flex-basis: 32px; height: 32px; font: 600 16px/22px var(--font-text); }
 
@@ -1020,18 +1025,38 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .friend__text { width: auto; }
   .caption-card { width: auto; }
   .push { width: auto; }
-  .choice { width: auto; }
+  .choice { width: auto; font-size: 18px; line-height: 24px; }
   .todo { width: auto; }
   .todo br { display: none; }
 
   /* 8–9: текст сверху, потом таймер и чат */
   .screen[data-pink] .screen__text { order: -3; }
   .timer { align-self: flex-end; order: -2; }
-  .screen[aria-label="Экран 9"] .chat, .screen[aria-label="Экран 9"] .push { display: none; }
+  .screen[aria-label="Экран 9"] .push { display: none; }
   .shout { width: auto !important; max-width: 88%; }
   .shout:nth-child(5) { align-self: flex-end; }
   .shout__text { font-size: 18px; line-height: 26px; }
   .shout__time { font-size: 16px; line-height: 22px; }
+
+  /* 8, 9, 11: кнопка «Дальше» внизу, после чата */
+  .screen[aria-label="Экран 8"] .screen__text, .screen[aria-label="Экран 9"] .screen__text, .screen[aria-label="Экран 11"] .screen__text { display: contents; }
+  .screen[aria-label="Экран 8"] .screen__content, .screen[aria-label="Экран 9"] .screen__content { order: -3; }
+  .screen[aria-label="Экран 8"] .btn, .screen[aria-label="Экран 9"] .btn, .screen[aria-label="Экран 11"] .btn { order: 2; align-self: flex-start; }
+
+  /* 8–9: таймер крупнее */
+  .screen[data-pink] .timer { padding: 6px 14px; border-radius: var(--radius-m); font-size: 20px; line-height: 26px; }
+
+  /* 9: чат «службы» фоном, крики поверх него */
+  .screen.is-active[aria-label="Экран 9"] { display: grid; grid-template-columns: 100%; align-content: start; }
+  .screen[aria-label="Экран 9"] .screen__content { grid-row: 1; }
+  .screen[aria-label="Экран 9"] .timer { grid-row: 2; justify-self: end; }
+  .screen[aria-label="Экран 9"] .shout:nth-child(4) { grid-row: 3; }
+  .screen[aria-label="Экран 9"] .shout:nth-child(5) { grid-row: 4; }
+  .screen[aria-label="Экран 9"] .shout:nth-child(6) { grid-row: 5; }
+  .screen[aria-label="Экран 9"] .shout { grid-column: 1; z-index: 1; justify-self: start; }
+  .screen[aria-label="Экран 9"] .shout:nth-child(5) { justify-self: end; }
+  .screen[aria-label="Экран 9"] .chat { display: flex; grid-row: 3 / 6; grid-column: 1; contain: size; overflow: hidden; margin: -12px 0; opacity: .5; filter: blur(1px); pointer-events: none; }
+  .screen[aria-label="Экран 9"] .btn { grid-row: 6; justify-self: start; margin-top: 16px; }
 
   /* 10: заголовок по центру, чат, кнопка внизу */
   .screen[aria-label="Экран 10"] .screen__text { display: contents; }
