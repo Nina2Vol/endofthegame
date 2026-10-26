@@ -49,6 +49,13 @@
   var mobile = window.matchMedia('(max-width: 900px), (max-width: 1100px) and (max-height: 500px)').matches;
   if (mobile) groups = groups.filter(function (g) { return g[0] !== '.age-card'; });
 
+  // В мобилке все блоки появляются одинаково — мягко снизу (просьба Нины);
+  // «выскакивают» только мелкие картинки и цифры
+  if (mobile) groups = groups.map(function (g) {
+    var small = /deco|number|circle|bubble|emergency__number/.test(g[0]);
+    return small ? g : [g[0], 'rise', g[2]];
+  });
+
   var items = [];
   groups.forEach(function (g) {
     var els = document.querySelectorAll(g[0]);

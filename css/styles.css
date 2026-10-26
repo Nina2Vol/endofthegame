@@ -1257,3 +1257,10 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .screen.is-active { max-width: 640px; margin: 0 auto; }
   .story-stage .header--story { max-width: 600px; left: 50%; transform: translateX(-50%); }
 }
+
+/* Мобилка: блоки истории появляются так же, как на остальных страницах — мягко снизу,
+   без въездов сбоку (просьба Нины) */
+@media (prefers-reduced-motion: no-preference) and (max-width: 900px), (prefers-reduced-motion: no-preference) and (max-width: 1100px) and (max-height: 500px) {
+  .screen.is-active .rule, .screen.is-active .player, .screen.is-active .chat,
+  .screen.is-active .caption-card, .screen.is-active .chat--large, .screen.is-active .push { animation-name: rise; }
+}
