@@ -297,7 +297,8 @@ img.is-missing { visibility: hidden; }
   gap: 48px;
   text-align: center;
 }
-.hero__title .lead { width: 495px; }
+.hero__title .lead { width: 495px; text-wrap: balance; }
+.hero__title .h1, .hero__intro .lead { text-wrap: balance; }
 .hero__intro {
   position: absolute;
   left: 842px;
