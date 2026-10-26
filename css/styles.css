@@ -955,6 +955,10 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   }
   .ages::-webkit-scrollbar { display: none; }
   .age-card { flex: 0 0 285px; scroll-snap-align: start; scroll-margin-left: 20px; }
+  /* Одинаковые отступы слева и справа у текста и кнопки */
+  .age-card { padding: 24px 16px 16px; }
+  .age-card__text { width: auto; }
+  .age-card .btn { left: 16px; right: 16px; bottom: 16px; }
 
   /* Почему правил недостаточно */
   .stages, .stages--bottom { gap: 12px; }
