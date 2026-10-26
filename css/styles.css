@@ -1164,7 +1164,10 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .help-steps--memo { grid-template-columns: repeat(3, 1fr); }
 .help-steps--memo .help-step { min-height: 0; }
 .help-steps--memo .help-step .body-s + .body-s { margin-top: 0; }
-.help-step__list { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 0; padding-left: 20px; }
+.help-step__list { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 0; padding: 0; list-style: none; }
+/* Маркеры списка — лаймовые точки в стиле сайта */
+.help-step__list li { position: relative; padding-left: 18px; }
+.help-step__list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--lime-500); }
 .help-step__list b { font-weight: 600; }
 .contacts { display: flex; flex-direction: column; gap: 20px; }
 .contact-row {
