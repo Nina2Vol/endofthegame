@@ -1140,11 +1140,12 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .memo__tag { font: 600 16px/20px var(--font-text); letter-spacing: 0.08em; text-transform: uppercase; }
 .memo .lead { max-width: 482px; }
 .memo .btn { align-self: flex-start; }
-.memo__art { flex: 0 0 522px; width: 522px; height: 480px; margin-right: 96px; object-fit: cover; object-position: left bottom; }
+/* Картинка во всю высоту карточки: верх картинки совпадает с верхом плашки, волосы не режутся посередине */
+.memo__art { flex: 0 0 522px; align-self: stretch; width: 522px; height: auto; min-height: 480px; margin-right: 96px; object-fit: cover; object-position: center top; }
 /* Памятка для родителей: голубая карточка, две кнопки, картинка целиком */
 .memo--parents { margin-top: 20px; background: var(--blue-200); }
 .memo__actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.memo--parents .memo__art { height: auto; margin: 0 64px 0 0; object-fit: contain; }
+.memo--parents .memo__art { flex-basis: 640px; align-self: flex-end; width: 640px; height: auto; min-height: 0; margin: 0 24px 0 0; object-fit: contain; }
 
 /* Куда обратиться */
 .help-head { display: flex; align-items: center; gap: 40px; }
@@ -1197,7 +1198,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .help-step { min-height: 0; }
   .emergency { flex-basis: 46%; }
   .emergency__number { font-size: 96px; line-height: 100px; }
-  .memo__art { flex-basis: 44%; width: 44%; height: auto; margin-right: 32px; }
+  .memo__art { flex-basis: 44%; width: 44%; height: auto; min-height: 0; margin-right: 32px; }
+  .memo--parents .memo__art { flex-basis: 48%; width: 48%; margin-right: 16px; }
   .contact-row__name { flex-basis: 340px; }
   .contact-row__more { margin-left: 380px; }
 }
@@ -1214,7 +1216,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .memo__tag { font-size: 14px; line-height: 18px; }
   .memo .h2 { font-size: 26px; line-height: 32px; }
   .memo .lead { font-size: 18px; line-height: 24px; }
-  .memo__art { flex: none; align-self: center; width: min(100%, 360px); height: auto; margin-top: 8px; }
+  .memo__art { flex: none; align-self: center; width: min(100%, 360px); height: auto; min-height: 0; margin-top: 8px; }
   .memo--parents { margin-top: 12px; }
   .memo--parents .memo__art { margin: 16px 0 0; }
   .help-head { flex-direction: column; align-items: stretch; gap: 24px; }
