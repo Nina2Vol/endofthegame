@@ -727,6 +727,7 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 @keyframes float      { 0%, 100% { transform: none; } 50% { transform: translateY(-14px) rotate(var(--r, 0deg)); } }
 @keyframes beat       { 0%, 60%, 100% { transform: none; } 15% { transform: scale(1.06); } 30% { transform: scale(.98); } 45% { transform: scale(1.04); } }
 @keyframes swing      { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg) translateY(-6px); } }
+@keyframes drift      { 0%, 100% { transform: none; } 50% { transform: translateY(-5px); } }
 @keyframes nudge      { 0%, 100% { transform: none; } 30% { transform: translateX(4px); } 60% { transform: translateX(-2px); } }
 
 /* =========================================================
@@ -744,10 +745,11 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .motion [data-reveal="from-right-soft"] { --reveal: from-right-soft; }
 
   /* Картинки в карточках потом живут своей жизнью */
-  .age-card:nth-child(2) .deco { --idle: float; --idle-time: 4.5s; }
-  .age-card:nth-child(1) .deco { --idle: wiggle; --idle-time: 3.5s; }
-  .age-card:nth-child(3) .deco { --idle: wiggle; --idle-time: 4s; transform-origin: 50% 30%; }
-  .age-card:nth-child(4) .deco { --idle: beat; --idle-time: 3s; }
+  /* Возрастные карточки — спокойное покачивание, по просьбе Нины */
+  .age-card .deco { --idle: drift; --idle-time: 7s; }
+  .age-card:nth-child(2) .deco + .deco { --idle-time: 8s; }
+  .age-card:nth-child(3) .deco { --idle-time: 7.5s; }
+  .age-card:nth-child(4) .deco { --idle-time: 6.5s; }
   .stage-card .deco[src*="heart"] { --idle: beat; --idle-time: 2.8s; transform-origin: 50% 60%; }
   .stage-card .deco[src*="star"] { --idle: twinkle; --idle-time: 3.2s; }
   .stage-card .deco[src*="star-2"] { --idle-time: 2.6s; }
@@ -757,10 +759,11 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 
   /* Наведение: карточка приподнимается, картинка подпрыгивает */
   .age-card, .stage-card, .option-card { transition: translate .3s ease, box-shadow .3s ease; }
-  .age-card:hover, .stage-card:hover { translate: 0 -6px; box-shadow: 0 16px 32px rgba(29, 27, 26, .08); }
+  .stage-card:hover { translate: 0 -6px; box-shadow: 0 16px 32px rgba(29, 27, 26, .08); }
+  .age-card:hover { translate: 0 -3px; }
   /* Подпрыгивание через translate/rotate, чтобы не перезапускать анимацию появления */
-  .age-card .deco { transition: translate .35s cubic-bezier(.3, 1.6, .5, 1), rotate .35s ease; }
-  .age-card:hover .deco { translate: 0 -10px; rotate: -4deg; }
+  .age-card .deco { transition: translate .5s ease, rotate .5s ease; }
+  .age-card:hover .deco { translate: 0 -4px; rotate: -1.5deg; }
   .option-card:hover { translate: 6px 0; }
   .chip { transition: translate .2s ease; }
   .chip:hover { translate: 3px 0; }
