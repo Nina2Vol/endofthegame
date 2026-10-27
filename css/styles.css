@@ -1344,6 +1344,12 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .article-steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .article-step { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-l); background: var(--bg-surface); }
 .article-step__top { display: flex; flex-direction: column; gap: 12px; }
+/* Нечётная последняя карточка — на всю ширину */
+.article-step:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.article-section > .article-link { align-self: flex-start; }
+/* Цитата героя/героини истории */
+.article-quote { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 32px; border-radius: var(--radius-l); background: var(--peach-200); }
+.article-quote blockquote { margin: 0; }
 .article-tip { display: flex; gap: 12px; padding: 24px 32px; border-radius: var(--radius-l); background: var(--bg-surface); }
 .article-tip p { flex: 1 1 0; }
 .article-phrases { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -1398,7 +1404,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .article-step .number { font-size: 40px; line-height: 40px; }
   .article-step .h4 { font-size: 18px; line-height: 24px; }
   .article-tip { padding: 20px 24px; border-radius: 28px; }
-  .article-phrase { padding: 24px; border-radius: 28px; }
+  .article-phrase, .article-quote { padding: 24px; border-radius: 28px; }
+  .article-quote .lead { font-size: 18px; line-height: 26px; }
   .article-phrase__tag { font-size: 14px; line-height: 18px; }
   .article-phrase li { font-size: 18px; line-height: 26px; }
   .article-outro { padding: 24px; border-radius: 28px; }
