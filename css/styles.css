@@ -1214,6 +1214,8 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
   .page .final { margin-top: 64px; }
   .page-head { gap: 16px; }
   .page-head .h1, .help-head .h1 { font-size: 36px; line-height: 42px; }
+  /* длинное слово «мошенничестве» не влезает в 36px на узких телефонах */
+  .page-head .h1--long { font-size: min(36px, 8.4vw); line-height: 1.17; }
   .page-head .lead, .help-head .lead { font-size: 18px; line-height: 24px; }
   .memo { flex-direction: column; align-items: stretch; gap: 0; margin-top: 32px; min-height: 0; border-radius: 28px; }
   .memo__text { padding: 24px 20px 0; gap: 24px; }
@@ -1287,18 +1289,19 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 .about-fact__src { font: 500 14px/18px var(--font-text); color: var(--text-secondary); text-decoration: underline; text-underline-offset: 3px; }
 .about-note { max-width: 860px; margin: 48px auto 0; text-align: center; }
 .about-story { background: var(--lime-200); margin-top: 0; }
-.about-story .memo__art { flex-basis: 539px; width: 539px; }
+.about-story { align-items: center; }
+.about-story .memo__art { flex-basis: 480px; width: 480px; align-self: center; margin: 48px 72px 48px 0; }
 .about-sources { max-width: 860px; }
 .about-sources ol { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 0; padding-left: 22px; color: var(--text-secondary); }
 .about-sources a { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; }
 .about-sources li { scroll-margin-top: 120px; }
 @media (max-width: 1240px) {
-  .about-story .memo__art { flex-basis: 44%; width: 44%; }
+  .about-story .memo__art { flex-basis: 40%; width: 40%; margin-right: 40px; }
 }
 @media (max-width: 900px), (max-width: 1100px) and (max-height: 500px) {
   .about-fact__num { font-size: 36px; line-height: 40px; }
   .about-note { margin-top: 24px; font-size: 18px; line-height: 26px; text-align: left; }
-  .about-story .memo__art { flex: none; width: min(100%, 360px); }
+  .about-story .memo__art { flex: none; width: min(100%, 320px); margin: 24px auto 28px; }
   .contact-row .h3 { overflow-wrap: anywhere; }
 }
 @media (min-width: 601px) and (max-width: 900px), (min-width: 601px) and (max-width: 1100px) and (max-height: 500px) {
@@ -1310,4 +1313,113 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 @media (max-width: 900px), (max-width: 1100px) and (max-height: 500px) {
   .about-intro { margin: 0 0 24px; font-size: 18px; line-height: 26px; text-align: left; }
   .about-quote { margin-top: 24px; padding: 24px; border-radius: 28px; }
+}
+
+/* =========================================================
+   Статьи (макеты «статья» и «статья · mobile») и карточки материалов.
+   Шаблон общий: новая статья — копия articles/*.html, блоки .article-*
+   ========================================================= */
+.article-head { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; max-width: 1000px; }
+.article-back { color: var(--text-secondary); }
+.article-back:hover { color: var(--text-primary); }
+.article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.article-meta__time { color: var(--text-secondary); }
+.article-head .lead { max-width: 792px; }
+/* Обложка: арка, цвет фона задаёт модификатор */
+.article-cover {
+  display: flex; align-items: center; justify-content: center; height: 480px; margin-top: 48px; overflow: hidden;
+  border-radius: 240px 240px var(--radius-l) var(--radius-l); background: var(--lime-200);
+}
+.article-cover img { width: 640px; height: 440px; max-width: 100%; object-fit: contain; }
+.article-cover--pink { background: var(--pink-200); }
+.article-cover--blue { background: var(--blue-200); }
+.article-cover--peach { background: var(--peach-200); }
+
+.article-body { display: flex; flex-direction: column; gap: 64px; max-width: 792px; margin-top: var(--section-gap); }
+.article-section { display: flex; flex-direction: column; gap: 24px; }
+.article-section b { font-weight: 600; }
+.article-list { display: flex; flex-direction: column; gap: 12px; }
+.article-list li { position: relative; padding-left: 24px; }
+.article-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--peach-500); }
+.article-steps { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.article-step { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-l); background: var(--bg-surface); }
+.article-step__top { display: flex; flex-direction: column; gap: 12px; }
+/* Нечётная последняя карточка — на всю ширину */
+.article-step:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.article-section > .article-link { align-self: flex-start; }
+/* Цитата героя/героини истории */
+.article-quote { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 32px; border-radius: var(--radius-l); background: var(--peach-200); }
+.article-quote blockquote { margin: 0; }
+.article-tip { display: flex; gap: 12px; padding: 24px 32px; border-radius: var(--radius-l); background: var(--bg-surface); }
+.article-tip p { flex: 1 1 0; }
+.article-phrases { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.article-phrase { display: flex; flex-direction: column; gap: 16px; padding: 32px; border-radius: var(--radius-l); background: var(--lime-200); }
+.article-phrase--no { background: var(--pink-200); }
+.article-phrase__tag { font: 600 16px/20px var(--font-text); letter-spacing: 0.08em; text-transform: uppercase; }
+.article-phrase ul { display: flex; flex-direction: column; gap: 12px; }
+.article-phrase li { font: 400 22px/30px var(--font-text); }
+/* Итог статьи — крупная мысль на лаймовой плашке */
+.article-outro { padding: 40px; border-radius: var(--radius-l); background: var(--lime-200); }
+.article-links { display: flex; flex-wrap: wrap; gap: 12px 32px; }
+.article-link { font: 600 16px/22px var(--font-text); text-decoration: underline; text-underline-offset: 3px; }
+.article-link:hover { text-decoration-thickness: 2px; }
+.article-more { margin-top: var(--section-gap); }
+.article-more .h2 { margin-bottom: 40px; }
+
+/* Карточка материала (компонент Material card) и сетка карточек */
+.mat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.mat-card {
+  display: flex; flex-direction: column; min-height: 480px; overflow: hidden;
+  border-radius: var(--radius-l); background: var(--bg-surface); transition: transform .25s ease, box-shadow .25s ease;
+}
+.mat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(29, 27, 26, .08); }
+.mat-card__art { display: flex; align-items: center; justify-content: center; height: 216px; flex: none; background: var(--lime-200); }
+.mat-card__art img { width: 320px; height: 184px; max-width: 90%; object-fit: contain; }
+.mat-card__art--pink { background: var(--pink-200); }
+.mat-card__art--blue { background: var(--blue-200); }
+.mat-card__art--peach { background: var(--peach-200); }
+.mat-card__text { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; padding: 32px 32px 40px; }
+.mat-card__top { display: flex; flex-direction: column; gap: 12px; }
+.mat-card__more { font: 500 13px/18px var(--font-text); color: var(--text-secondary); }
+.page--materials .mat-section { margin-top: var(--section-gap); }
+.page--materials .mat-section .h2 { margin-bottom: 40px; }
+
+@media (max-width: 1240px) {
+  .mat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px), (max-width: 1100px) and (max-height: 500px) {
+  .article-head { gap: 16px; }
+  .article-head .h1 { font-size: 32px; line-height: 38px; }
+  .article-head .lead { font-size: 18px; line-height: 26px; }
+  .article-head .eyebrow { font-size: 14px; line-height: 18px; }
+  .article-cover { height: 280px; margin-top: 32px; border-radius: 150px 150px 28px 28px; }
+  .article-cover img { width: 310px; height: 240px; }
+  .article-body { gap: 48px; margin-top: 64px; }
+  .article-section { gap: 16px; }
+  .article-section .h3 { font-size: 20px; line-height: 26px; }
+  .article-section .body, .article-tip { font-size: 16px; line-height: 24px; }
+  .article-list li::before { top: 8px; }
+  .article-steps, .article-phrases { grid-template-columns: 1fr; gap: 16px; }
+  .article-step { padding: 24px; border-radius: 28px; }
+  .article-step .number { font-size: 40px; line-height: 40px; }
+  .article-step .h4 { font-size: 18px; line-height: 24px; }
+  .article-tip { padding: 20px 24px; border-radius: 28px; }
+  .article-phrase, .article-quote { padding: 24px; border-radius: 28px; }
+  .article-quote .lead { font-size: 18px; line-height: 26px; }
+  .article-phrase__tag { font-size: 14px; line-height: 18px; }
+  .article-phrase li { font-size: 18px; line-height: 26px; }
+  .article-outro { padding: 24px; border-radius: 28px; }
+  .article-more { margin-top: 64px; }
+  .article-more .h2, .page--materials .mat-section .h2 { margin-bottom: 24px; font-size: 26px; line-height: 32px; }
+  .page--materials .mat-section { margin-top: 64px; }
+  .mat-grid { grid-template-columns: 1fr; gap: 16px; }
+  .mat-card { min-height: 0; border-radius: 28px; }
+  .mat-card__art { height: 200px; }
+  .mat-card__art img { width: 290px; height: 170px; }
+  .mat-card__text { padding: 24px 24px 28px; }
+  .mat-card .eyebrow { font-size: 14px; line-height: 18px; }
+  .mat-card .h4 { font-size: 18px; line-height: 24px; }
+}
+@media (min-width: 601px) and (max-width: 900px), (min-width: 601px) and (max-width: 1100px) and (max-height: 500px) {
+  .article-head, .article-cover, .article-body, .article-more, .page--materials .mat-section { max-width: 640px; margin-left: auto; margin-right: auto; }
 }
