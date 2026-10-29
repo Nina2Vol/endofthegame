@@ -1423,3 +1423,9 @@ main:has(> .final:last-child) + .footer { margin-top: 0; }
 @media (min-width: 601px) and (max-width: 900px), (min-width: 601px) and (max-width: 1100px) and (max-height: 500px) {
   .article-head, .article-cover, .article-body, .article-more, .page--materials .mat-section { max-width: 640px; margin-left: auto; margin-right: auto; }
 }
+
+/* Соцсети в подвале: круглые кнопки-иконки */
+.socials { display: flex; gap: 12px; margin: 4px 0 0; padding: 0; list-style: none; }
+.socials__link { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, .1); color: var(--text-on-dark); transition: background .2s ease, color .2s ease; }
+.socials__link svg { width: 22px; height: 22px; }
+.socials__link:hover, .socials__link:focus-visible { background: var(--lime-500); color: var(--text-primary); }
